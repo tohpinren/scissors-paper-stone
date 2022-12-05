@@ -47,6 +47,7 @@ function playRound(playerSelection){
 }
 
 // Play 5 round game that keeps score and reports winner or loser at the end
+/*
 function game(){
     let player_score = 0;
     let comp_score = 0;
@@ -72,3 +73,49 @@ function game(){
 }
 
 game();
+*/
+
+// Event listeners for buttons
+const container = document.querySelector('#container');
+
+const rockBtn = document.querySelector('#rock');
+rockBtn.addEventListener('click', () => {
+    if (!document.getElementById('results')){
+        const result = document.createElement('div');
+        result.setAttribute('id', 'results');
+        result.textContent = playRound('Rock');
+
+        container.appendChild(result);
+    } else {
+        const result = document.getElementById('results');
+        result.textContent= playRound('Rock');
+    }
+});
+
+const paperBtn = document.querySelector('#paper');
+paperBtn.addEventListener('click', () => {
+    if (!document.getElementById('results')){
+        const result = document.createElement('div');
+        result.setAttribute('id', 'results');
+        result.textContent = playRound('Paper');
+
+        container.appendChild(result);
+    } else {
+        const result = document.getElementById('results');
+        result.textContent= playRound('Paper');
+    }
+});
+
+const scissorsBtn = document.querySelector('#scissors');
+scissorsBtn.addEventListener('click', () => {
+    if (!document.getElementById('results')){
+        const result = document.createElement('div');
+        result.setAttribute('id', 'results');
+        result.textContent = playRound('Scissors');
+
+        container.appendChild(result);
+    } else {
+        const result = document.getElementById('results');
+        result.textContent= playRound('Scissors');
+    }
+});
