@@ -1,9 +1,9 @@
-// Randomly return either rock, paper or scissors
+// Randomly return either stone, paper or scissors
 function getComputerChoice(){
     let random_num = Math.floor(Math.random() * 3);
     switch(random_num){
         case 0:
-            return "Rock";
+            return "Stone";
             break;
         case 1:
             return "Paper";
@@ -19,7 +19,7 @@ function playRound(playerSelection){
     let player = playerSelection.toLowerCase();
     let computerSelection = getComputerChoice();
     let comp = computerSelection.toLowerCase();
-    if (player === "rock"){
+    if (player === "stone"){
         if (comp === "paper"){
             return `You Lose! ${computerSelection} beats ${playerSelection}`;
         } else if (comp === "scissors"){
@@ -30,13 +30,13 @@ function playRound(playerSelection){
     } else if (playerSelection === "paper"){
         if (comp === "scissors"){
             return `You Lose! ${computerSelection} beats ${playerSelection}`;
-        } else if (comp === "rock"){
+        } else if (comp === "stone"){
             return `You Win! ${playerSelection} beats ${computerSelection}`;
         } else {
             return "Draw!";
         }
     } else {
-        if (comp === "rock"){
+        if (comp === "stone"){
             return `You Lose! ${computerSelection} beats ${playerSelection}`;
         } else if (comp === "paper"){
             return `You Win! ${playerSelection} beats ${computerSelection}`;
@@ -109,9 +109,9 @@ function rpsEventListener(choice){
 // Event listeners for buttons
 const container = document.querySelector('#container');
 
-const rockBtn = document.querySelector('#rock');
-rockBtn.addEventListener('click', () => {
-    rpsEventListener("Rock");
+const stoneBtn = document.querySelector('#stone');
+stoneBtn.addEventListener('click', () => {
+    rpsEventListener("Stone");
 });
 
 const paperBtn = document.querySelector('#paper');

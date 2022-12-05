@@ -1,0 +1,61 @@
+/* Color palette
+Are ya yellow?!: #feda6a
+Silver Fox: #d4d4dc
+Deep Matte Grey: #393f4d
+Dark Slate: #1d1e22
+*/
+
+* {
+    font-family: 'Verdana', 'Arial';
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+/* Title */
+.title {
+    background-color: #1d1e22;
+    font-size: 50px;
+    color: #feda6a;
+    padding: 20px;
+}
+
+.text {
+    background-color: #393f4d;
+    color: #d4d4dc;
+    padding-top: 20px;
+}
+
+.buttons {
+    background-color: #393f4d;
+    padding-bottom: 20px;
+    padding-top: 10px;
+    color: #d4d4dc;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+#stone,
+#paper,
+#scissors {
+    font-size: 100px;
+    transition-duration: 0.4s;
+    background-color: #393f4d;
+    border: 2px solid #1d1e22;
+    border-radius: 10px;
+    padding: 20px 30px;
+}
+
+#stone:hover,
+#paper:hover,
+#scissors:hover {
+    background-color: #feda6a;
+}
+
+/* Footer */
+.foot {
+    font-size: 14px;
+    background-color: #1d1e22;
+    color: #d4d4dc;
+}
