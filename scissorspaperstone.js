@@ -1,4 +1,4 @@
-// Randomly return either stone, paper or scissors
+// Randomly return either scissors, paper or stone
 function getComputerChoice(){
     let random_num = Math.floor(Math.random() * 3);
     switch(random_num){
