@@ -75,47 +75,118 @@ function game(){
 game();
 */
 
+// Global variables
+let games_count = 0;
+let player_wins = 0;
+let comp_wins = 0;
+
 // Event listeners for buttons
 const container = document.querySelector('#container');
 
 const rockBtn = document.querySelector('#rock');
 rockBtn.addEventListener('click', () => {
+    let curr = playRound('Rock');
+
+    // div for current round results text
     if (!document.getElementById('results')){
         const result = document.createElement('div');
         result.setAttribute('id', 'results');
-        result.textContent = playRound('Rock');
+        result.textContent = curr;
 
         container.appendChild(result);
     } else {
         const result = document.getElementById('results');
-        result.textContent= playRound('Rock');
+        result.textContent= curr;
+    }
+
+    // collate current score
+    if (curr.slice(0, 8) === "You Win!"){
+        player_wins++;
+    } else if (curr.slice(0, 9) === "You Lose!"){
+        comp_wins++;
+    }
+
+    // div for current score
+    if (!document.getElementById('scores')){
+        const score = document.createElement('div');
+        score.setAttribute('id', 'scores');
+        score.textContent = `Player: ${player_wins} Computer: ${comp_wins}`;
+
+        container.appendChild(score);
+    } else {
+        const score = document.getElementById('scores');
+        score.textContent= `Player: ${player_wins} Computer: ${comp_wins}`;
     }
 });
 
 const paperBtn = document.querySelector('#paper');
 paperBtn.addEventListener('click', () => {
+    let curr = playRound('Paper');
+
+    // div for current round results text
     if (!document.getElementById('results')){
         const result = document.createElement('div');
         result.setAttribute('id', 'results');
-        result.textContent = playRound('Paper');
+        result.textContent = curr;
 
         container.appendChild(result);
     } else {
         const result = document.getElementById('results');
-        result.textContent= playRound('Paper');
+        result.textContent= curr;
+    }
+
+    // collate current score
+    if (curr.slice(0, 8) === "You Win!"){
+        player_wins++;
+    } else if (curr.slice(0, 9) === "You Lose!"){
+        comp_wins++;
+    }
+
+    // div for current score
+    if (!document.getElementById('scores')){
+        const score = document.createElement('div');
+        score.setAttribute('id', 'scores');
+        score.textContent = `Player: ${player_wins} Computer: ${comp_wins}`;
+
+        container.appendChild(score);
+    } else {
+        const score = document.getElementById('scores');
+        score.textContent= `Player: ${player_wins} Computer: ${comp_wins}`;
     }
 });
 
 const scissorsBtn = document.querySelector('#scissors');
 scissorsBtn.addEventListener('click', () => {
+    let curr = playRound('Scissors');
+
+    // div for current round results text
     if (!document.getElementById('results')){
         const result = document.createElement('div');
         result.setAttribute('id', 'results');
-        result.textContent = playRound('Scissors');
+        result.textContent = curr;
 
         container.appendChild(result);
     } else {
         const result = document.getElementById('results');
-        result.textContent= playRound('Scissors');
+        result.textContent= curr;
+    }
+
+    // collate current score
+    if (curr.slice(0, 8) === "You Win!"){
+        player_wins++;
+    } else if (curr.slice(0, 9) === "You Lose!"){
+        comp_wins++;
+    }
+
+    // div for current score
+    if (!document.getElementById('scores')){
+        const score = document.createElement('div');
+        score.setAttribute('id', 'scores');
+        score.textContent = `Player: ${player_wins} Computer: ${comp_wins}`;
+
+        container.appendChild(score);
+    } else {
+        const score = document.getElementById('scores');
+        score.textContent= `Player: ${player_wins} Computer: ${comp_wins}`;
     }
 });
