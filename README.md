@@ -1,3 +1,1 @@
-# rock-paper-scissors
-
-Rock Paper Scissors Game
+Scissors Paper Stone game
