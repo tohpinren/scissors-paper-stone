@@ -20,17 +20,37 @@ Dark Slate: #1d1e22
     padding: 20px;
 }
 
+/* Text div */
 .text {
     background-color: #393f4d;
     color: #d4d4dc;
-    padding-top: 20px;
+    padding: 20px;
+}
+
+/* Score div */
+.score {
+    background-color: #393f4d;
+    color: #d4d4dc;
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    padding-bottom: 20px;
+    font-size: 20px;
+}
+
+.sign {
+    font-size: 100px;
+}
+
+/* Choice div */
+.choice {
+    background-color: #393f4d;
+    color: #d4d4dc;
 }
 
 .buttons {
-    background-color: #393f4d;
     padding-bottom: 20px;
     padding-top: 10px;
-    color: #d4d4dc;
     display: flex;
     justify-content: center;
     gap: 50px;
