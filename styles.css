@@ -10,6 +10,7 @@ Dark Slate: #1d1e22
     padding: 0;
     margin: 0;
     text-align: center;
+    background-color: #393f4d;
 }
 
 /* Title */
@@ -24,7 +25,7 @@ Dark Slate: #1d1e22
 .text {
     background-color: #393f4d;
     color: #d4d4dc;
-    padding: 20px;
+    padding: 30px;
 }
 
 /* Score div */
@@ -34,11 +35,12 @@ Dark Slate: #1d1e22
     display: flex;
     justify-content: center;
     gap: 100px;
-    padding-bottom: 20px;
+    padding-bottom: 30px;
     font-size: 20px;
 }
 
-.sign {
+#player_sign,
+#computer_sign {
     font-size: 100px;
 }
 
@@ -49,8 +51,8 @@ Dark Slate: #1d1e22
 }
 
 .buttons {
-    padding-bottom: 20px;
-    padding-top: 10px;
+    padding-bottom: 30px;
+    padding-top: 20px;
     display: flex;
     justify-content: center;
     gap: 50px;
@@ -75,7 +77,11 @@ Dark Slate: #1d1e22
 
 /* Footer */
 .foot {
-    font-size: 14px;
+    font-size: 18px;
     background-color: #1d1e22;
     color: #d4d4dc;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
 }

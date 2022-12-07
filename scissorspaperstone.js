@@ -14,40 +14,36 @@ function getComputerChoice(){
     }
 }
 
-// Plays one round and declaress winner
-function playRound(playerSelection){
+// Plays one round and declare winner
+function playRound(playerSelection, computerSelection){
     let player = playerSelection.toLowerCase();
-    let computerSelection = getComputerChoice();
     let comp = computerSelection.toLowerCase();
-    if (player === "stone"){
-        if (comp === "paper"){
+    if (player === "stone" && comp === "paper"
+        || player === "paper" && comp === "scissors"
+        || player === "scissors" && comp === "stone"){
             return `You Lose! ${computerSelection} beats ${playerSelection}`;
-        } else if (comp === "scissors"){
-            return `You Win! ${playerSelection} beats ${computerSelection}`;
-        } else {
-            return "Draw!";
-        }
-    } else if (playerSelection === "paper"){
-        if (comp === "scissors"){
-            return `You Lose! ${computerSelection} beats ${playerSelection}`;
-        } else if (comp === "stone"){
-            return `You Win! ${playerSelection} beats ${computerSelection}`;
-        } else {
-            return "Draw!";
-        }
+    } else if (player === "stone" && comp === "scissors"
+                || player === "paper" && comp === "stone"
+                || player === "scissors" && comp === "paper"){
+                    return `You Win! ${playerSelection} beats ${computerSelection}`;
     } else {
-        if (comp === "stone"){
-            return `You Lose! ${computerSelection} beats ${playerSelection}`;
-        } else if (comp === "paper"){
-            return `You Win! ${playerSelection} beats ${computerSelection}`;
-        } else {
-            return "Draw!";
-        }
+        return "Draw!";
+    }
+}
+
+// Convert string to sign
+function stringToSign(signString){
+    let lower = signString.toLowerCase();
+    if (lower === "scissors"){
+        return '✌';
+    } else if (lower === "paper"){
+        return '✋';
+    } else {
+        return '✊';
     }
 }
 
 // Global variables
-let games_count = 0;
 let player_wins = 0;
 let comp_wins = 0;
 let game_ended = 0;
@@ -55,19 +51,12 @@ let game_ended = 0;
 // Abstraction function for event listener
 function rpsEventListener(choice){
     if (game_ended !== 1){
-        let curr = playRound(choice);
+        let computerSelection = getComputerChoice();
+        let curr = playRound(choice, computerSelection);
 
-        // div for current round results text
-        if (!document.getElementById('results')){
-            const result = document.createElement('div');
-            result.setAttribute('id', 'results');
-            result.textContent = curr;
-    
-            container.appendChild(result);
-        } else {
-            const result = document.getElementById('results');
-            result.textContent= curr;
-        }
+        // text div
+        const result = document.getElementById('result');
+        result.textContent= curr;
     
         // collate current score
         if (curr.slice(0, 8) === "You Win!"){
@@ -75,33 +64,29 @@ function rpsEventListener(choice){
         } else if (curr.slice(0, 9) === "You Lose!"){
             comp_wins++;
         }
+
+        // score div, show current score
+        const player_score = document.getElementById('player_score');
+        const computer_score = document.getElementById('computer_score');
+        
+        player_score.textContent = `Player:${player_wins}`;
+        computer_score.textContent = `Computer:${comp_wins}`;
+
+        // show current round signs
+        const player_sign = document.getElementById('player_sign');
+        const computer_sign = document.getElementById('computer_sign');
+        player_sign.textContent = stringToSign(choice);
+        computer_sign.textContent = stringToSign(computerSelection);
     
         // div for current score
         // check if game ended
         if (player_wins >= 5 || comp_wins >= 5){
-            // show final scores and result
-            const score = document.getElementById('scores');
-            const winner = player_wins >= 5 ? "You Won!"
-                                            : "Computer Won!";
-            score.textContent= `${winner} Player: ${player_wins} Computer: ${comp_wins}`;
-
-            // remove current round div
-            const result = document.getElementById('results');
-            container.removeChild(result);
+            const winner = player_wins >= 5 ? "Game over! You Won!"
+                                            : "Game over! Computer Won!";
+            result.textContent= winner;
 
             // end game
             game_ended = 1;
-        } else {
-            if (!document.getElementById('scores')){
-                const score = document.createElement('div');
-                score.setAttribute('id', 'scores');
-                score.textContent = `Player: ${player_wins} Computer: ${comp_wins}`;
-        
-                container.appendChild(score);
-            } else {
-                const score = document.getElementById('scores');
-                score.textContent= `Player: ${player_wins} Computer: ${comp_wins}`;
-            }
         }
     }
 }
