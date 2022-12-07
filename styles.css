@@ -25,7 +25,7 @@ Dark Slate: #1d1e22
 .text {
     background-color: #393f4d;
     color: #d4d4dc;
-    padding: 30px;
+    padding: 20px;
 }
 
 /* Score div */
@@ -35,7 +35,7 @@ Dark Slate: #1d1e22
     display: flex;
     justify-content: center;
     gap: 100px;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
     font-size: 20px;
 }
 
@@ -51,7 +51,7 @@ Dark Slate: #1d1e22
 }
 
 .buttons {
-    padding-bottom: 30px;
+    padding-bottom: 20px;
     padding-top: 20px;
     display: flex;
     justify-content: center;
@@ -84,4 +84,30 @@ Dark Slate: #1d1e22
     bottom: 0;
     width: 100%;
     text-align: center;
+}
+
+/* Play again */
+#play_again {
+    background-color: #393f4d;
+    color: #d4d4dc;
+}
+
+#play_again h1 {
+    font-size: 50px;
+    padding-bottom: 10px;
+}
+
+#play_again button {
+    font-size: 30px;
+    background-color: #d4d4dc;
+    color: #1d1e22;
+    transition-duration: 0.4s;
+    border: 2px solid #1d1e22;
+    border-radius: 10px;
+    padding: 10px 30px;
+}
+
+
+#play_again button:hover{
+    background-color: #feda6a;
 }

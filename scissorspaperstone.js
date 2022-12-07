@@ -14,7 +14,7 @@ function getComputerChoice(){
     }
 }
 
-// Plays one round and declare winner
+// Plays one round and return string with result
 function playRound(playerSelection, computerSelection){
     let player = playerSelection.toLowerCase();
     let comp = computerSelection.toLowerCase();
@@ -81,12 +81,19 @@ function rpsEventListener(choice){
         // div for current score
         // check if game ended
         if (player_wins >= 5 || comp_wins >= 5){
+            // show winner text
             const winner = player_wins >= 5 ? "Game over! You Won!"
                                             : "Game over! Computer Won!";
             result.textContent= winner;
 
             // end game
             game_ended = 1;
+
+            // show play again button
+            const playAgain = document.createElement('div');
+            playAgain.setAttribute('id', 'play_again');
+            playAgain.innerHTML = '<h1>Play again?</h1><button id="play_again_btn">YES</button>';
+            container.appendChild(playAgain);
         }
     }
 }
@@ -108,3 +115,34 @@ const scissorsBtn = document.querySelector('#scissors');
 scissorsBtn.addEventListener('click', () => {
     rpsEventListener("Scissors");
 });
+
+
+document.addEventListener("click", function(e){
+    const target = e.target.closest("#play_again_btn");
+    if(target){
+        // reset globals
+        player_wins = 0;
+        comp_wins = 0;
+        game_ended = 0;
+
+        // reset text
+        const result = document.getElementById('result');
+        result.textContent = 'First to 5 wins!';
+
+        // reset score
+        const player_score = document.getElementById('player_score');
+        const computer_score = document.getElementById('computer_score');
+        player_score.textContent = `Player:${player_wins}`;
+        computer_score.textContent = `Computer:${comp_wins}`;
+        
+        // reset current sign
+        const player_sign = document.getElementById('player_sign');
+        const computer_sign = document.getElementById('computer_sign');
+        player_sign.textContent = '?';
+        computer_sign.textContent = '?';
+
+        // remove play again div
+        const playAgain = document.getElementById('play_again');
+        container.removeChild(playAgain);
+    }
+  });
