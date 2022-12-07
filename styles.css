@@ -71,7 +71,8 @@ Dark Slate: #1d1e22
 
 #stone:hover,
 #paper:hover,
-#scissors:hover {
+#scissors:hover,
+#play_again button:hover {
     background-color: #feda6a;
 }
 
@@ -105,9 +106,4 @@ Dark Slate: #1d1e22
     border: 2px solid #1d1e22;
     border-radius: 10px;
     padding: 10px 30px;
-}
-
-
-#play_again button:hover{
-    background-color: #feda6a;
 }
