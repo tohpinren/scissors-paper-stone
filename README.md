@@ -3,6 +3,8 @@ Single page scissors paper stone web app that allows users to play scissors pape
 
 I built this to learn frontend development.
 
+Page can be accessed [here](https://tohpinren.github.io/scissors-paper-stone/).
+
 ## Built with
 - JavaScript
 - HTML
