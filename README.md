@@ -1,5 +1,9 @@
-Scissors Paper Stone game
+# Scissors Paper Stone
+Single page scissors paper stone web app that allows users to play scissors paper stone with the computer.
 
-Made with JavaScript, HTML, CSS
+I built this to learn frontend development.
 
-https://tohpinren.github.io/scissors-paper-stone/
+## Built with
+- JavaScript
+- HTML
+- CSS
